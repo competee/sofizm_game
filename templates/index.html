@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Falacymania</title>
+
+    <!-- Заділ на стилі -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- На майбутнє: адаптивність -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <div id="app">
+
+        <header>
+            <h1>Falacymania</h1>
+        </header>
+
+        <section id="controls">
+            <button id="rules-btn">Правила</button>
+            <button id="cards-btn">Дайте карти</button>
+        </section>
+
+        <section id="rules" hidden>
+            <pre id="rules-text"></pre>
+        </section>
+
+        <section id="cards-area">
+            <!-- Карти будуть додаватись сюди через JS -->
+        </section>
+
+        <section id="score-area">
+            <p>Твій бал: <span id="score">0</span></p>
+            <button data-delta="1">+1 бал</button>
+            <button data-delta="-1">-1 бал</button>
+        </section>
+
+    </div>
+    <div id="viewer">
+        <img id="viewer-img">
+    </div>
+
+
+
+    <!-- Заділ на JS -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
