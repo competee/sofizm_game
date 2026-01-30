@@ -68,13 +68,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function openViewer(src) {
-        scale = 1;
-        x = 0;
-        y = 0;
+        viewerImg.onload = () => {
+            const vw = viewer.clientWidth;
+            const vh = viewer.clientHeight;
+
+            const iw = viewerImg.naturalWidth;
+            const ih = viewerImg.naturalHeight;
+
+            // scale так, щоб картинка повністю вмістилась в екран
+            scale = Math.min(vw / iw, vh / ih);
+
+            // центруємо
+            x = (vw - iw * scale) / 2;
+            y = (vh - ih * scale) / 2;
+
+            updateTransform();
+        };
+
         viewerImg.src = src;
-        updateTransform();
         viewer.style.display = "flex";
     }
+
 
     function closeViewer() {
         viewer.style.display = "none";
