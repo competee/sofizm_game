@@ -94,8 +94,6 @@ button:hover {
     align-items: center;
     z-index: 9999;
     cursor: zoom-out;
-    touch-action: none;
-
 }
 
 #viewer img {
